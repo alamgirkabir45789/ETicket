@@ -1,0 +1,95 @@
+﻿@model IEnumerable<ETicket.Models.Passenger>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1 class="align-content-center text-center">Ticket Information</h1>
+
+<p >
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JournyDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Route)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RouteTo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JournyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Route.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RouteTo.Name)
+            </td>
+            <td>
+                @*<a asp-action="Edit" class="btn btn-sm btn-info" asp-route-id="@item.PassengerId">Edit</a> |*@
+                <a asp-action="Details" class="btn btn-sm btn-primary ml-1" asp-route-id="@item.PassengerId">Details</a> |
+                <a asp-action="Delete" class="btn btn-sm btn-danger ml-1" asp-route-id="@item.PassengerId">Cancel</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

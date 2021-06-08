@@ -1,0 +1,271 @@
+﻿@model ETicket.ViewModels.PassengerCreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+
+<hr />
+
+
+
+
+
+
+
+<div class="col-11 mx-auto pt-0 p-0">
+    <div class="card">
+        <div class="card-header bg-success text-uppercase text-white" style="height:45px;">
+            <h4>Create Ticket</h4>
+        </div>
+        <form asp-action="SavePassenger">
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.Name" class="control-label"></label>
+                        <input asp-for="@Model.Passenger.Name" class="form-control" />
+                        <span asp-validation-for="@Model.Passenger.Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.Age" class="control-label"></label>
+                        <input asp-for="@Model.Passenger.Age" class="form-control" />
+                        <span asp-validation-for="@Model.Passenger.Age" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.Gender" class="control-label"></label>
+                        <input asp-for="@Model.Passenger.Gender" class="form-control" />
+                        <span asp-validation-for="@Model.Passenger.Gender" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.ContactNo" class="control-label"></label>
+                        <input asp-for="@Model.Passenger.ContactNo" class="form-control" />
+                        <span asp-validation-for="@Model.Passenger.ContactNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.PassengerNo" class="control-label"></label>
+                        <input asp-for="@Model.Passenger.PassengerNo" class="form-control" />
+                        <span asp-validation-for="@Model.Passenger.PassengerNo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.Price" class="control-label"></label>
+                        <input asp-for="@Model.Passenger.Price" class="form-control" />
+                        <span asp-validation-for="@Model.Passenger.Price" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.JournyDate" class="control-label"></label>
+                        <input asp-for="@Model.Passenger.JournyDate" class="form-control" />
+                        <span asp-validation-for="@Model.Passenger.JournyDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.Email" class="control-label"></label>
+                        <input asp-for="@Model.Passenger.Email" class="form-control" />
+                        <span asp-validation-for="@Model.Passenger.Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.RouteCode" class="control-label"></label>
+                        <select id="lstRoute" asp-for="@Model.Passenger.RouteCode" class="form-control" asp-items="@Model.Routes">
+                            <option value="">Select Route</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Passenger.RouteToCode" class="control-label"></label>
+                        <select id="lstRouteTo" asp-for="@Model.Passenger.RouteToCode" class="form-control" asp-items="@Model.RouteTos">
+                            <option value="">Select RouteTo</option>
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="col-12 btn-group">
+                    <div class="col-6 form-group text-right p-2">
+                            <a asp-action="List" class="btn btn-secondary">&nbsp;Back&nbsp;</a>
+                        </div>
+                    <div class=" col-6 form-group text-left p-2">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </div>
+
+            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.Name" class="control-label"></label>
+                    <input asp-for="@Model.Passenger.Name" class="form-control" />
+                    <span asp-validation-for="@Model.Passenger.Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.Age" class="control-label"></label>
+                    <input asp-for="@Model.Passenger.Age" class="form-control" />
+                    <span asp-validation-for="@Model.Passenger.Age" class="text-danger"></span>
+                </div>
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.Gender" class="control-label"></label>
+
+                    <input asp-for="@Model.Passenger.Gender" class="form-control" />
+                    <span asp-validation-for="@Model.Passenger.Gender" class="text-danger"></span>
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.ContactNo" class="control-label"></label>
+                    <input asp-for="@Model.Passenger.ContactNo" class="form-control" />
+                    <span asp-validation-for="@Model.Passenger.ContactNo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.PassengerNo" class="control-label"></label>
+                    <input asp-for="@Model.Passenger.PassengerNo" class="form-control" />
+                    <span asp-validation-for="@Model.Passenger.PassengerNo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.Price" class="control-label"></label>
+                    <input asp-for="@Model.Passenger.Price" class="form-control" />
+                    <span asp-validation-for="@Model.Passenger.Price" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.JournyDate" class="control-label"></label>
+                    <input asp-for="@Model.Passenger.JournyDate" class="form-control" />
+                    <span asp-validation-for="@Model.Passenger.JournyDate" class="text-danger"></span>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.Email" class="control-label"></label>
+                    <input asp-for="@Model.Passenger.Email" class="form-control" />
+                    <span asp-validation-for="@Model.Passenger.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.RouteCode" class="control-label"></label>
+                    <select id="lstRoute" asp-for="@Model.Passenger.RouteCode" class="form-control" asp-items="@Model.Routes">
+                        <option value="">Select Route</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Passenger.RouteToCode" class="control-label"></label>
+                    <select id="lstRouteTo" asp-for="@Model.Passenger.RouteToCode" class="form-control" asp-items="@Model.RouteTos">
+                        <option value="">Select RouteTo</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>*@
+
+
+
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+
+
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#lstRoute').change(function () {
+            var selectedRoute = $("#lstRoute").val();
+
+            var routeToSelect = $('#lstRouteTo');
+            routeToSelect.empty();
+
+            if (selectedRoute != null &&
+                selectedRoute != '') {
+                $.getJSON('@Url.Action("GetRouteTos")', { RouteCode: selectedRoute }, function (routes) {
+                    if (routes != null && !jQuery.isEmptyObject(routes)) {
+                        routeToSelect.append($('<option/>', {
+                            value: null,
+                            text: "Select RouteTo"
+                        }));
+
+                        $.each(routes, function (index, routeto) {
+                            routeToSelect.append($('<option/>', {
+                                value: routeto.value,
+                                text: routeto.text
+                            }));
+                        });
+                    };
+                });
+            }
+        });
+    })
+
+    </script>
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#AppointmentDate").datepicker(
+
+                {
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: 'dd-mm-yy'
+                }
+            );
+        })
+    </script>
+
+}

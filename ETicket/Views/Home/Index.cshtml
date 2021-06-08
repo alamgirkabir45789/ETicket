@@ -1,0 +1,643 @@
+﻿<div id="header">
+    <div id="left_sub_header">
+        <div id="image_placeholder">
+            <a href="/en_US/">
+                <img id="logo" src='http://s3.amazonaws.com/busbdmedia/company_sunaqo6obybjlswoorz34gdlrs5kirdplo9' alt='Desh Travels' />
+            </a>
+
+            <div id='headerrightbox' class="bg-light w-25 float-md-right box-shadow">
+                <div class="detailsbox yellow_white phoneDiv textcenter right">
+                    <span title="Call for bus tickets" class="telephone txtwhite">Call: 16460<br>Email: support@intouchsoftbd.com</span>
+                </div>
+
+            </div>
+        </div>
+
+       
+    </div>
+   
+</div>
+
+<div id="container">
+    <div class="widget_container " id="container_1"><div class="widget" id="container_1_1"></div></div><div class="widget_container " id="container_2">
+        <div class="widget" id="container_2_1">
+            <link href="http://skins.busbd.com.bd/busbdbrown/default/onlineseatbooking.css" media="screen" rel="stylesheet" type="text/css" />
+            <script type="text/javascript" src="http://js.busbd.com.bd/slider/js/bxslider/jquery.bxSlider.min.js"></script>
+            <script type="text/javascript">
+    jQuery(document).ready(function(){
+        $('.bxslider').bxSlider({
+            auto: true,
+            autoControls: true
+        });
+        $('a.bx-prev,a.bx-next,div.bx-auto').remove();
+    });
+            </script>
+
+            <div id='errorDiv' style="display:none;float:left; width:100%;"><ul class="message-container"><li id='error_container' class="message error-first message error-last"></li></ul></div>
+            <script type="text/javascript" src="http://js.busbd.com.bd/jquery.ui/ui.datepicker.js"></script>
+            <script type="text/javascript">
+    $(document).ready(function() {
+        $('li.searchcatagory').hide();
+        $('select#searchmenu_coachtype').change(function(){
+            $('select#searchmenu_tentative option[value=""]').attr('selected',true);
+            $('input#searchmenu_noofseats').val('');
+            if($(this).val() == 1){
+                $('li.searchcatagory').show();
+            }else{
+                $('li.searchcatagory').hide();
+            }
+        })
+
+
+        $("#coachsearchForm").submit(function() {
+            var error = null;
+            $('#error-general-wrapper').hide();
+            if(trim($("#searchmenu_leavingform").val()) == ''){
+                error = "PLEASE SELECT WHERE TO LEAVE FROM.";
+            }else if(trim($("#searchmenu_goingto").val()) == ''){
+                error = "PLEASE SELECT WHERE TO GO.";
+            }else if(trim($("#searchmenu_departingon").val()) == ''){
+                error = "PLEASE SELECT DEPARTING TIME.";
+            }else if($('select#searchmenu_coachtype option:selected').val() == ''){
+                error = "PLEASE SELECT COACH TYPE.";
+            }
+
+            if($('select#searchmenu_coachtype option:selected').val() == '1'){
+                if($('select#searchmenu_tentative option:selected').val() == ''){
+                    error = "PLEASE SELECT TENTATIVE TIME.";
+                }/*else if($('input#searchmenu_noofseats').val() == ''){
+                    error = "PLEASE PUT NO OF SEATS U REQUIRED.";
+                }*/
+            }
+
+            /*if($('input#searchmenu_noofseats').val() > 6){
+                error = "Maximum Allowed Seat 6(SIX).";
+            }*/
+
+            if(!is_null(error)){  $('#error_container').html(error);  $('#errorDiv').show(); error = false;  }else{
+                $('#error_container').html('');   $('#errorDiv').hide(); error = true;
+            }
+            return error;
+        });
+        var departingonMaxDate = '20';
+
+        if(departingonMaxDate){
+            departingonMaxDate = "+" + departingonMaxDate  +"D";
+        }else{
+            departingonMaxDate = "'+1M'";
+        }
+
+
+        $("#searchmenu_departingon").datepicker({
+            changeMonth: true,    changeYear: true, yearRange: '1920:2050', dateFormat: 'dd/mm/yy',
+            minDate: 0, numberOfMonths: 2, maxDate: departingonMaxDate ,showOn: "button", buttonImage: imageDirectory + "images/calendar.gif", buttonImageOnly: true}).attr('readonly', 'readonly');
+        $( "#searchmenu_departingon" ).click(function(){  $( "#searchmenu_departingon" ).datepicker("show"); });
+        $('.ui-datepicker-trigger').css({'margin-top': '8px'});
+    });
+            </script>
+            <div class="widget" id="container_2_1">
+                <div id="cmscontent">
+                    <div class="msgbox mar10">
+                        <!--<h1>Hello & Welcome to <span style="color: #B93117;">Desh Travels</span></h1> -->
+                        <!-- <h4>First Time Online Intercity Bus Ticketing Portal In Bangladesh</h4> -->
+
+                        <div id='news-tricker' class="">
+                            <marquee behaviour="scroll" direction="left" scrollamount="4">
+                                <h2 style="color: #008000;">
+                                    <span style="color: #000000;">Routes : </span>
+                                    Dhaka->Rajshahi<span style="color:black;margin-right:5px;">,</span>Dhaka->Chapainawabganj<span style="color:black;margin-right:5px;">,</span>Dhaka->Kansat<span style="color:black;margin-right:5px;">,</span>Rajshahi->Dhaka<span style="color:black;margin-right:5px;">,</span>Chapainawabganj->Dhaka<span style="color:black;margin-right:5px;">,</span>Kansat->Dhaka<span style="color:black;margin-right:5px;">,</span>Kansat->Dhaka( By Pass )<span style="color:black;margin-right:5px;">,</span>Mohakhali->Chapainawabganj<span style="color:black;margin-right:5px;">,</span>Chapainawabganj->Mohakhali<span style="color:black;margin-right:5px;">,</span>Mohakhali->Kansat<span style="color:black;margin-right:5px;">,</span>Kansat->Mohakhali<span style="color:black;margin-right:5px;">,</span>Dhaka->Cox's Bazar<span style="color:black;margin-right:5px;">,</span>Cox's Bazar->Dhaka<span style="color:black;margin-right:5px;">,</span>Dhaka->Chittagong<span style="color:black;margin-right:5px;">,</span>Chittagong->Dhaka<span style="color:black;margin-right:5px;">,</span>Chapainawabganj->Chittagong<span style="color:black;margin-right:5px;">,</span>Chittagong->Cox's Bazar<span style="color:black;margin-right:5px;">,</span>Chittagong->Chapainawabganj<span style="color:black;margin-right:5px;">,</span>Chapainawabganj->Cox's Bazar<span style="color:black;margin-right:5px;">,</span>Cox's Bazar->Chapainawabganj<span style="color:black;margin-right:5px;">,</span>Cox's Bazar->Chittagong<span style="color:black;margin-right:5px;">,</span>Dhaka->Kolkata<span style="color:black;margin-right:5px;">,</span>Benapole->Dhaka<span style="color:black;margin-right:5px;">,</span>Benapole->Chittagong<span style="color:black;margin-right:5px;">,</span>Petrapole->Kolkata<span style="color:black;margin-right:5px;">,</span>Chittagong->Mohakhali<span style="color:black;margin-right:5px;">,</span>Dhaka->Bandarban<span style="color:black;margin-right:5px;">,</span>Bandarban->Dhaka<span style="color:black;margin-right:5px;">,</span>Dhaka->Benapole<span style="color:black;margin-right:5px;">,</span>Khulna->Dhaka<span style="color:black;margin-right:5px;">,</span>Dhaka->Khulna<span style="color:black;margin-right:5px;">,</span>Dhaka->Khagrachari<span style="color:black;margin-right:5px;">,</span>Khagrachari->Dhaka
+                                </h2>
+                            </marquee>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div>
+                        <!--<div class="black borderradious3 txtbrown left shadow3" id="searchform">
+                            <div class="searchTitle">Buy Ticket</div>
+                            <div class="onlinesearch_header">
+                                <form id="coachsearchForm" method="post" action="/en_US/seatsearch">
+
+                                    <input type="hidden" name="searchOption" value="oneway" id="searchOption" />
+                                    <input type="hidden" name="onlineseatbooking_token" value="5760cc23f2a1f6d9e107b198e3ac0047" id="onlineseatbooking_token" />                        <ul>
+                                        <li class="left">
+                                            <div class='block_div leaving_from'>
+                                                <div class="">
+                                                    <span class='saerchradio_spantest'>
+                                                        <dt id="searchmenu_leavingform-label">
+                                                            <label for="searchmenu_leavingform">Leaving From:<span class="required">*</span></label>
+                                                        </dt>
+                                                    </span>
+                                                </div>
+                                                <div class="">
+
+                                                    <select name="searchmenu_leavingform" id="searchmenu_leavingform" class="select">
+                                                        <option value="" label="---" selected="selected">---</option>
+                                                        <option value="2" label="BANDARBAN">BANDARBAN</option>
+                                                        <option value="148" label="BENAPOLE">BENAPOLE</option>
+                                                        <option value="231" label="CHAKARIA">CHAKARIA</option>
+                                                        <option value="9" label="CHAPAINAWABGANJ">CHAPAINAWABGANJ</option>
+                                                        <option value="10" label="CHITTAGONG(CHATTOGRAM)">CHITTAGONG(CHATTOGRAM)</option>
+                                                        <option value="12" label="COMILLA(CUMILLA)">COMILLA(CUMILLA)</option>
+                                                        <option value="339" label="COX HOTEL">COX HOTEL</option>
+                                                        <option value="13" label="COX'S BAZAR">COX'S BAZAR</option>
+                                                        <option value="14" label="DHAKA">DHAKA</option>
+                                                        <option value="271" label="DHAKA (BD)">DHAKA (BD)</option>
+                                                        <option value="16" label="FARIDPUR">FARIDPUR</option>
+                                                        <option value="17" label="FENI">FENI</option>
+                                                        <option value="24" label="JESSORE(JASHORE)">JESSORE(JASHORE)</option>
+                                                        <option value="82" label="KANSAT">KANSAT</option>
+                                                        <option value="191" label="KARANIRHAT">KARANIRHAT</option>
+                                                        <option value="27" label="KHAGRACHARI">KHAGRACHARI</option>
+                                                        <option value="28" label="KHULNA">KHULNA</option>
+                                                        <option value="76" label="KOLKATA">KOLKATA</option>
+                                                        <option value="35" label="MAGURA">MAGURA</option>
+                                                        <option value="242" label="MOHAKHALI">MOHAKHALI</option>
+                                                        <option value="45" label="NATORE">NATORE</option>
+                                                        <option value="228" label="NOWAPARA">NOWAPARA</option>
+                                                        <option value="264" label="PETRAPOLE">PETRAPOLE</option>
+                                                        <option value="84" label="PUTHIA">PUTHIA</option>
+                                                        <option value="54" label="RAJBARI">RAJBARI</option>
+                                                        <option value="55" label="RAJSHAHI">RAJSHAHI</option>
+                                                        <option value="244" label="SHIMAKHALI">SHIMAKHALI</option>
+                                                        <option value="162" label="SHIRAJGONJ ROAD">SHIRAJGONJ ROAD</option>
+                                                        <option value="61" label="SIRAJGANJ">SIRAJGANJ</option>
+                                                        <option value="64" label="TANGAIL">TANGAIL</option>
+                                                        <option value="182" label="UTTARA">UTTARA</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class='block_div'>
+                                                <div class="search_radio_span">
+                                                    <span class='saerchradio_spantest'>
+                                                        <label for="searchmenu_goingto">Going To:<span class="required">*</span></label>
+                                                    </span>
+                                                </div>
+                                                <div class="search_radio_span small_search">
+
+                                                    <select name="searchmenu_goingto" id="searchmenu_goingto" class="select">
+                                                        <option value="" label="---" selected="selected">---</option>
+                                                        <option value="2" label="BANDARBAN">BANDARBAN</option>
+                                                        <option value="148" label="BENAPOLE">BENAPOLE</option>
+                                                        <option value="231" label="CHAKARIA">CHAKARIA</option>
+                                                        <option value="9" label="CHAPAINAWABGANJ">CHAPAINAWABGANJ</option>
+                                                        <option value="10" label="CHITTAGONG(CHATTOGRAM)">CHITTAGONG(CHATTOGRAM)</option>
+                                                        <option value="12" label="COMILLA(CUMILLA)">COMILLA(CUMILLA)</option>
+                                                        <option value="339" label="COX HOTEL">COX HOTEL</option>
+                                                        <option value="13" label="COX'S BAZAR">COX'S BAZAR</option>
+                                                        <option value="207" label="DASHURIA">DASHURIA</option>
+                                                        <option value="14" label="DHAKA">DHAKA</option>
+                                                        <option value="16" label="FARIDPUR">FARIDPUR</option>
+                                                        <option value="17" label="FENI">FENI</option>
+                                                        <option value="24" label="JESSORE(JASHORE)">JESSORE(JASHORE)</option>
+                                                        <option value="82" label="KANSAT">KANSAT</option>
+                                                        <option value="191" label="KARANIRHAT">KARANIRHAT</option>
+                                                        <option value="27" label="KHAGRACHARI">KHAGRACHARI</option>
+                                                        <option value="424" label="KHAJURA">KHAJURA</option>
+                                                        <option value="28" label="KHULNA">KHULNA</option>
+                                                        <option value="76" label="KOLKATA">KOLKATA</option>
+                                                        <option value="31" label="KUSHTIA">KUSHTIA</option>
+                                                        <option value="35" label="MAGURA">MAGURA</option>
+                                                        <option value="242" label="MOHAKHALI">MOHAKHALI</option>
+                                                        <option value="45" label="NATORE">NATORE</option>
+                                                        <option value="228" label="NOWAPARA">NOWAPARA</option>
+                                                        <option value="264" label="PETRAPOLE">PETRAPOLE</option>
+                                                        <option value="84" label="PUTHIA">PUTHIA</option>
+                                                        <option value="54" label="RAJBARI">RAJBARI</option>
+                                                        <option value="55" label="RAJSHAHI">RAJSHAHI</option>
+                                                        <option value="94" label="SHIBGANJ">SHIBGANJ</option>
+                                                        <option value="244" label="SHIMAKHALI">SHIMAKHALI</option>
+                                                        <option value="162" label="SHIRAJGONJ ROAD">SHIRAJGONJ ROAD</option>
+                                                        <option value="61" label="SIRAJGANJ">SIRAJGANJ</option>
+                                                        <option value="64" label="TANGAIL">TANGAIL</option>
+                                                        <option value="182" label="UTTARA">UTTARA</option>
+                                                    </select>
+                                                </div>
+                                                <input value="{&quot;10&quot;:{&quot;2&quot;:{&quot;district_id&quot;:&quot;BANDARBAN&quot;,&quot;district_title&quot;:&quot;BANDARBAN&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;244&quot;:{&quot;district_id&quot;:&quot;SHIMAKHALI&quot;,&quot;district_title&quot;:&quot;SHIMAKHALI&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;35&quot;:{&quot;district_id&quot;:&quot;MAGURA&quot;,&quot;district_title&quot;:&quot;MAGURA&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;13&quot;:{&quot;district_id&quot;:&quot;COX'S BAZAR&quot;,&quot;district_title&quot;:&quot;COX'S BAZAR&quot;},&quot;191&quot;:{&quot;district_id&quot;:&quot;KARANIRHAT&quot;,&quot;district_title&quot;:&quot;KARANIRHAT&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;14&quot;:{&quot;2&quot;:{&quot;district_id&quot;:&quot;BANDARBAN&quot;,&quot;district_title&quot;:&quot;BANDARBAN&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;12&quot;:{&quot;district_id&quot;:&quot;COMILLA(CUMILLA)&quot;,&quot;district_title&quot;:&quot;COMILLA(CUMILLA)&quot;},&quot;191&quot;:{&quot;district_id&quot;:&quot;KARANIRHAT&quot;,&quot;district_title&quot;:&quot;KARANIRHAT&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;244&quot;:{&quot;district_id&quot;:&quot;SHIMAKHALI&quot;,&quot;district_title&quot;:&quot;SHIMAKHALI&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;35&quot;:{&quot;district_id&quot;:&quot;MAGURA&quot;,&quot;district_title&quot;:&quot;MAGURA&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;84&quot;:{&quot;district_id&quot;:&quot;PUTHIA&quot;,&quot;district_title&quot;:&quot;PUTHIA&quot;},&quot;82&quot;:{&quot;district_id&quot;:&quot;KANSAT&quot;,&quot;district_title&quot;:&quot;KANSAT&quot;},&quot;13&quot;:{&quot;district_id&quot;:&quot;COX'S BAZAR&quot;,&quot;district_title&quot;:&quot;COX'S BAZAR&quot;},&quot;231&quot;:{&quot;district_id&quot;:&quot;CHAKARIA&quot;,&quot;district_title&quot;:&quot;CHAKARIA&quot;},&quot;264&quot;:{&quot;district_id&quot;:&quot;PETRAPOLE&quot;,&quot;district_title&quot;:&quot;PETRAPOLE&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;},&quot;228&quot;:{&quot;district_id&quot;:&quot;NOWAPARA&quot;,&quot;district_title&quot;:&quot;NOWAPARA&quot;},&quot;27&quot;:{&quot;district_id&quot;:&quot;KHAGRACHARI&quot;,&quot;district_title&quot;:&quot;KHAGRACHARI&quot;}},&quot;61&quot;:{&quot;2&quot;:{&quot;district_id&quot;:&quot;BANDARBAN&quot;,&quot;district_title&quot;:&quot;BANDARBAN&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;12&quot;:{&quot;district_id&quot;:&quot;COMILLA(CUMILLA)&quot;,&quot;district_title&quot;:&quot;COMILLA(CUMILLA)&quot;},&quot;191&quot;:{&quot;district_id&quot;:&quot;KARANIRHAT&quot;,&quot;district_title&quot;:&quot;KARANIRHAT&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;13&quot;:{&quot;district_id&quot;:&quot;COX'S BAZAR&quot;,&quot;district_title&quot;:&quot;COX'S BAZAR&quot;},&quot;231&quot;:{&quot;district_id&quot;:&quot;CHAKARIA&quot;,&quot;district_title&quot;:&quot;CHAKARIA&quot;},&quot;182&quot;:{&quot;district_id&quot;:&quot;UTTARA&quot;,&quot;district_title&quot;:&quot;UTTARA&quot;}},&quot;55&quot;:{&quot;2&quot;:{&quot;district_id&quot;:&quot;BANDARBAN&quot;,&quot;district_title&quot;:&quot;BANDARBAN&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;12&quot;:{&quot;district_id&quot;:&quot;COMILLA(CUMILLA)&quot;,&quot;district_title&quot;:&quot;COMILLA(CUMILLA)&quot;},&quot;191&quot;:{&quot;district_id&quot;:&quot;KARANIRHAT&quot;,&quot;district_title&quot;:&quot;KARANIRHAT&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;31&quot;:{&quot;district_id&quot;:&quot;KUSHTIA&quot;,&quot;district_title&quot;:&quot;KUSHTIA&quot;},&quot;207&quot;:{&quot;district_id&quot;:&quot;DASHURIA&quot;,&quot;district_title&quot;:&quot;DASHURIA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;182&quot;:{&quot;district_id&quot;:&quot;UTTARA&quot;,&quot;district_title&quot;:&quot;UTTARA&quot;},&quot;13&quot;:{&quot;district_id&quot;:&quot;COX'S BAZAR&quot;,&quot;district_title&quot;:&quot;COX'S BAZAR&quot;},&quot;162&quot;:{&quot;district_id&quot;:&quot;SHIRAJGONJ ROAD&quot;,&quot;district_title&quot;:&quot;SHIRAJGONJ ROAD&quot;},&quot;231&quot;:{&quot;district_id&quot;:&quot;CHAKARIA&quot;,&quot;district_title&quot;:&quot;CHAKARIA&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;}},&quot;45&quot;:{&quot;2&quot;:{&quot;district_id&quot;:&quot;BANDARBAN&quot;,&quot;district_title&quot;:&quot;BANDARBAN&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;12&quot;:{&quot;district_id&quot;:&quot;COMILLA(CUMILLA)&quot;,&quot;district_title&quot;:&quot;COMILLA(CUMILLA)&quot;},&quot;191&quot;:{&quot;district_id&quot;:&quot;KARANIRHAT&quot;,&quot;district_title&quot;:&quot;KARANIRHAT&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;31&quot;:{&quot;district_id&quot;:&quot;KUSHTIA&quot;,&quot;district_title&quot;:&quot;KUSHTIA&quot;},&quot;207&quot;:{&quot;district_id&quot;:&quot;DASHURIA&quot;,&quot;district_title&quot;:&quot;DASHURIA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;13&quot;:{&quot;district_id&quot;:&quot;COX'S BAZAR&quot;,&quot;district_title&quot;:&quot;COX'S BAZAR&quot;},&quot;162&quot;:{&quot;district_id&quot;:&quot;SHIRAJGONJ ROAD&quot;,&quot;district_title&quot;:&quot;SHIRAJGONJ ROAD&quot;},&quot;231&quot;:{&quot;district_id&quot;:&quot;CHAKARIA&quot;,&quot;district_title&quot;:&quot;CHAKARIA&quot;},&quot;182&quot;:{&quot;district_id&quot;:&quot;UTTARA&quot;,&quot;district_title&quot;:&quot;UTTARA&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;}},&quot;9&quot;:{&quot;2&quot;:{&quot;district_id&quot;:&quot;BANDARBAN&quot;,&quot;district_title&quot;:&quot;BANDARBAN&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;12&quot;:{&quot;district_id&quot;:&quot;COMILLA(CUMILLA)&quot;,&quot;district_title&quot;:&quot;COMILLA(CUMILLA)&quot;},&quot;191&quot;:{&quot;district_id&quot;:&quot;KARANIRHAT&quot;,&quot;district_title&quot;:&quot;KARANIRHAT&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;31&quot;:{&quot;district_id&quot;:&quot;KUSHTIA&quot;,&quot;district_title&quot;:&quot;KUSHTIA&quot;},&quot;207&quot;:{&quot;district_id&quot;:&quot;DASHURIA&quot;,&quot;district_title&quot;:&quot;DASHURIA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;182&quot;:{&quot;district_id&quot;:&quot;UTTARA&quot;,&quot;district_title&quot;:&quot;UTTARA&quot;},&quot;13&quot;:{&quot;district_id&quot;:&quot;COX'S BAZAR&quot;,&quot;district_title&quot;:&quot;COX'S BAZAR&quot;},&quot;162&quot;:{&quot;district_id&quot;:&quot;SHIRAJGONJ ROAD&quot;,&quot;district_title&quot;:&quot;SHIRAJGONJ ROAD&quot;},&quot;231&quot;:{&quot;district_id&quot;:&quot;CHAKARIA&quot;,&quot;district_title&quot;:&quot;CHAKARIA&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;}},&quot;84&quot;:{&quot;2&quot;:{&quot;district_id&quot;:&quot;BANDARBAN&quot;,&quot;district_title&quot;:&quot;BANDARBAN&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;12&quot;:{&quot;district_id&quot;:&quot;COMILLA(CUMILLA)&quot;,&quot;district_title&quot;:&quot;COMILLA(CUMILLA)&quot;},&quot;191&quot;:{&quot;district_id&quot;:&quot;KARANIRHAT&quot;,&quot;district_title&quot;:&quot;KARANIRHAT&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;31&quot;:{&quot;district_id&quot;:&quot;KUSHTIA&quot;,&quot;district_title&quot;:&quot;KUSHTIA&quot;},&quot;207&quot;:{&quot;district_id&quot;:&quot;DASHURIA&quot;,&quot;district_title&quot;:&quot;DASHURIA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;13&quot;:{&quot;district_id&quot;:&quot;COX'S BAZAR&quot;,&quot;district_title&quot;:&quot;COX'S BAZAR&quot;},&quot;162&quot;:{&quot;district_id&quot;:&quot;SHIRAJGONJ ROAD&quot;,&quot;district_title&quot;:&quot;SHIRAJGONJ ROAD&quot;},&quot;231&quot;:{&quot;district_id&quot;:&quot;CHAKARIA&quot;,&quot;district_title&quot;:&quot;CHAKARIA&quot;},&quot;182&quot;:{&quot;district_id&quot;:&quot;UTTARA&quot;,&quot;district_title&quot;:&quot;UTTARA&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;}},&quot;2&quot;:{&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;}},&quot;191&quot;:{&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;148&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;264&quot;:{&quot;district_id&quot;:&quot;PETRAPOLE&quot;,&quot;district_title&quot;:&quot;PETRAPOLE&quot;},&quot;271&quot;:{&quot;district_id&quot;:&quot;DHAKA (BD)&quot;,&quot;district_title&quot;:&quot;DHAKA (BD)&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;31&quot;:{&quot;district_id&quot;:&quot;KUSHTIA&quot;,&quot;district_title&quot;:&quot;KUSHTIA&quot;},&quot;207&quot;:{&quot;district_id&quot;:&quot;DASHURIA&quot;,&quot;district_title&quot;:&quot;DASHURIA&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;}},&quot;244&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;24&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;31&quot;:{&quot;district_id&quot;:&quot;KUSHTIA&quot;,&quot;district_title&quot;:&quot;KUSHTIA&quot;},&quot;207&quot;:{&quot;district_id&quot;:&quot;DASHURIA&quot;,&quot;district_title&quot;:&quot;DASHURIA&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;}},&quot;35&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;264&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;31&quot;:{&quot;district_id&quot;:&quot;KUSHTIA&quot;,&quot;district_title&quot;:&quot;KUSHTIA&quot;},&quot;207&quot;:{&quot;district_id&quot;:&quot;DASHURIA&quot;,&quot;district_title&quot;:&quot;DASHURIA&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;}},&quot;31&quot;:{&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;207&quot;:{&quot;district_id&quot;:&quot;DASHURIA&quot;,&quot;district_title&quot;:&quot;DASHURIA&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;}},&quot;207&quot;:{&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;31&quot;:{&quot;district_id&quot;:&quot;KUSHTIA&quot;,&quot;district_title&quot;:&quot;KUSHTIA&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;}},&quot;17&quot;:{&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;244&quot;:{&quot;district_id&quot;:&quot;SHIMAKHALI&quot;,&quot;district_title&quot;:&quot;SHIMAKHALI&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;35&quot;:{&quot;district_id&quot;:&quot;MAGURA&quot;,&quot;district_title&quot;:&quot;MAGURA&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;13&quot;:{&quot;district_id&quot;:&quot;COX'S BAZAR&quot;,&quot;district_title&quot;:&quot;COX'S BAZAR&quot;},&quot;191&quot;:{&quot;district_id&quot;:&quot;KARANIRHAT&quot;,&quot;district_title&quot;:&quot;KARANIRHAT&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;54&quot;:{&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;35&quot;:{&quot;district_id&quot;:&quot;MAGURA&quot;,&quot;district_title&quot;:&quot;MAGURA&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;244&quot;:{&quot;district_id&quot;:&quot;SHIMAKHALI&quot;,&quot;district_title&quot;:&quot;SHIMAKHALI&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;},&quot;228&quot;:{&quot;district_id&quot;:&quot;NOWAPARA&quot;,&quot;district_title&quot;:&quot;NOWAPARA&quot;}},&quot;16&quot;:{&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;35&quot;:{&quot;district_id&quot;:&quot;MAGURA&quot;,&quot;district_title&quot;:&quot;MAGURA&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;244&quot;:{&quot;district_id&quot;:&quot;SHIMAKHALI&quot;,&quot;district_title&quot;:&quot;SHIMAKHALI&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;},&quot;228&quot;:{&quot;district_id&quot;:&quot;NOWAPARA&quot;,&quot;district_title&quot;:&quot;NOWAPARA&quot;}},&quot;424&quot;:{&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;231&quot;:{&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;13&quot;:{&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;339&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;162&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;242&quot;:{&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;84&quot;:{&quot;district_id&quot;:&quot;PUTHIA&quot;,&quot;district_title&quot;:&quot;PUTHIA&quot;},&quot;82&quot;:{&quot;district_id&quot;:&quot;KANSAT&quot;,&quot;district_title&quot;:&quot;KANSAT&quot;},&quot;10&quot;:{&quot;district_id&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;,&quot;district_title&quot;:&quot;CHITTAGONG(CHATTOGRAM)&quot;},&quot;17&quot;:{&quot;district_id&quot;:&quot;FENI&quot;,&quot;district_title&quot;:&quot;FENI&quot;},&quot;13&quot;:{&quot;district_id&quot;:&quot;COX'S BAZAR&quot;,&quot;district_title&quot;:&quot;COX'S BAZAR&quot;},&quot;191&quot;:{&quot;district_id&quot;:&quot;KARANIRHAT&quot;,&quot;district_title&quot;:&quot;KARANIRHAT&quot;},&quot;28&quot;:{&quot;district_id&quot;:&quot;KHULNA&quot;,&quot;district_title&quot;:&quot;KHULNA&quot;},&quot;24&quot;:{&quot;district_id&quot;:&quot;JESSORE(JASHORE)&quot;,&quot;district_title&quot;:&quot;JESSORE(JASHORE)&quot;},&quot;244&quot;:{&quot;district_id&quot;:&quot;SHIMAKHALI&quot;,&quot;district_title&quot;:&quot;SHIMAKHALI&quot;},&quot;228&quot;:{&quot;district_id&quot;:&quot;NOWAPARA&quot;,&quot;district_title&quot;:&quot;NOWAPARA&quot;},&quot;35&quot;:{&quot;district_id&quot;:&quot;MAGURA&quot;,&quot;district_title&quot;:&quot;MAGURA&quot;},&quot;76&quot;:{&quot;district_id&quot;:&quot;KOLKATA&quot;,&quot;district_title&quot;:&quot;KOLKATA&quot;},&quot;148&quot;:{&quot;district_id&quot;:&quot;BENAPOLE&quot;,&quot;district_title&quot;:&quot;BENAPOLE&quot;}},&quot;182&quot;:{&quot;9&quot;:{&quot;district_id&quot;:&quot;CHAPAINAWABGANJ&quot;,&quot;district_title&quot;:&quot;CHAPAINAWABGANJ&quot;},&quot;55&quot;:{&quot;district_id&quot;:&quot;RAJSHAHI&quot;,&quot;district_title&quot;:&quot;RAJSHAHI&quot;},&quot;45&quot;:{&quot;district_id&quot;:&quot;NATORE&quot;,&quot;district_title&quot;:&quot;NATORE&quot;},&quot;84&quot;:{&quot;district_id&quot;:&quot;PUTHIA&quot;,&quot;district_title&quot;:&quot;PUTHIA&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;82&quot;:{&quot;district_id&quot;:&quot;KANSAT&quot;,&quot;district_title&quot;:&quot;KANSAT&quot;}},&quot;82&quot;:{&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;}},&quot;76&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;}},&quot;28&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;228&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;}},&quot;27&quot;:{&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;}},&quot;94&quot;:{&quot;242&quot;:{&quot;district_id&quot;:&quot;MOHAKHALI&quot;,&quot;district_title&quot;:&quot;MOHAKHALI&quot;},&quot;14&quot;:{&quot;district_id&quot;:&quot;DHAKA&quot;,&quot;district_title&quot;:&quot;DHAKA&quot;},&quot;64&quot;:{&quot;district_id&quot;:&quot;TANGAIL&quot;,&quot;district_title&quot;:&quot;TANGAIL&quot;},&quot;61&quot;:{&quot;district_id&quot;:&quot;SIRAJGANJ&quot;,&quot;district_title&quot;:&quot;SIRAJGANJ&quot;}}}" type="hidden" id="jsonval" />
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class='block_div departing_block_div'>
+                                                <div class="search_radio_span">
+                                                    <span class='saerchradio_spantest'>
+                                                        <span id="searchmenu_departingon-label">
+                                                            <label for="searchmenu_departingon">Departing On:<span class="required">*</span></label>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="search_radio_span">
+
+                                                    <input type="text" name="searchmenu_departingon" id="searchmenu_departingon" value="02/05/2021" maxlength="255" class="input-text" />
+                                                </div>
+                                            </div>
+                                        </li>-->
+
+                                        <!--
+                                                                    <li>
+                                                                        <div class='block_div small_block_div div_departing_time '>
+                                                                            <div class="search_radio_span small" >
+                                                                                <span class='saerchradio_spantest '>
+                                                                                    <span id="searchmenu_departingtime-label"><label for="searchmenu_departingtime" class="optional">Departing Time:</label></span>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="search_radio_span small" style="margin-top: 5px;">
+
+                                        <select name="searchmenu_departingtime" id="searchmenu_departingtime" class="small_select">
+                                            <option value="" label="---" selected="selected">---</option>
+                                            <option value="12:00 AM" label="12:00 AM">12:00 AM</option>
+                                            <option value="12:15 AM" label="12:15 AM">12:15 AM</option>
+                                            <option value="1:44 AM" label="1:44 AM">1:44 AM</option>
+                                            <option value="3:15 AM" label="3:15 AM">3:15 AM</option>
+                                            <option value="3:40 AM" label="3:40 AM">3:40 AM</option>
+                                            <option value="4:30 AM" label="4:30 AM">4:30 AM</option>
+                                            <option value="4:45 AM" label="4:45 AM">4:45 AM</option>
+                                            <option value="4:50 AM" label="4:50 AM">4:50 AM</option>
+                                            <option value="5:00 AM" label="5:00 AM">5:00 AM</option>
+                                            <option value="5:01 AM" label="5:01 AM">5:01 AM</option>
+                                            <option value="5:15 AM" label="5:15 AM">5:15 AM</option>
+                                            <option value="5:30 AM" label="5:30 AM">5:30 AM</option>
+                                            <option value="5:45 AM" label="5:45 AM">5:45 AM</option>
+                                            <option value="5:46 AM" label="5:46 AM">5:46 AM</option>
+                                            <option value="6:00 AM" label="6:00 AM">6:00 AM</option>
+                                            <option value="6:01 AM" label="6:01 AM">6:01 AM</option>
+                                            <option value="6:14 AM" label="6:14 AM">6:14 AM</option>
+                                            <option value="6:15 AM" label="6:15 AM">6:15 AM</option>
+                                            <option value="6:30 AM" label="6:30 AM">6:30 AM</option>
+                                            <option value="6:40 AM" label="6:40 AM">6:40 AM</option>
+                                            <option value="6:44 AM" label="6:44 AM">6:44 AM</option>
+                                            <option value="6:45 AM" label="6:45 AM">6:45 AM</option>
+                                            <option value="6:50 AM" label="6:50 AM">6:50 AM</option>
+                                            <option value="6:51 AM" label="6:51 AM">6:51 AM</option>
+                                            <option value="7:00 AM" label="7:00 AM">7:00 AM</option>
+                                            <option value="7:01 AM" label="7:01 AM">7:01 AM</option>
+                                            <option value="7:02 AM" label="7:02 AM">7:02 AM</option>
+                                            <option value="7:14 AM" label="7:14 AM">7:14 AM</option>
+                                            <option value="7:15 AM" label="7:15 AM">7:15 AM</option>
+                                            <option value="7:30 AM" label="7:30 AM">7:30 AM</option>
+                                            <option value="7:31 AM" label="7:31 AM">7:31 AM</option>
+                                            <option value="7:40 AM" label="7:40 AM">7:40 AM</option>
+                                            <option value="7:44 AM" label="7:44 AM">7:44 AM</option>
+                                            <option value="7:45 AM" label="7:45 AM">7:45 AM</option>
+                                            <option value="7:46 AM" label="7:46 AM">7:46 AM</option>
+                                            <option value="7:50 AM" label="7:50 AM">7:50 AM</option>
+                                            <option value="7:55 AM" label="7:55 AM">7:55 AM</option>
+                                            <option value="8:00 AM" label="8:00 AM">8:00 AM</option>
+                                            <option value="8:01 AM" label="8:01 AM">8:01 AM</option>
+                                            <option value="8:05 AM" label="8:05 AM">8:05 AM</option>
+                                            <option value="8:14 AM" label="8:14 AM">8:14 AM</option>
+                                            <option value="8:15 AM" label="8:15 AM">8:15 AM</option>
+                                            <option value="8:30 AM" label="8:30 AM">8:30 AM</option>
+                                            <option value="8:31 AM" label="8:31 AM">8:31 AM</option>
+                                            <option value="8:44 AM" label="8:44 AM">8:44 AM</option>
+                                            <option value="8:45 AM" label="8:45 AM">8:45 AM</option>
+                                            <option value="8:46 AM" label="8:46 AM">8:46 AM</option>
+                                            <option value="8:50 AM" label="8:50 AM">8:50 AM</option>
+                                            <option value="8:51 AM" label="8:51 AM">8:51 AM</option>
+                                            <option value="9:00 AM" label="9:00 AM">9:00 AM</option>
+                                            <option value="9:01 AM" label="9:01 AM">9:01 AM</option>
+                                            <option value="9:10 AM" label="9:10 AM">9:10 AM</option>
+                                            <option value="9:15 AM" label="9:15 AM">9:15 AM</option>
+                                            <option value="9:16 AM" label="9:16 AM">9:16 AM</option>
+                                            <option value="9:17 AM" label="9:17 AM">9:17 AM</option>
+                                            <option value="9:20 AM" label="9:20 AM">9:20 AM</option>
+                                            <option value="9:21 AM" label="9:21 AM">9:21 AM</option>
+                                            <option value="9:29 AM" label="9:29 AM">9:29 AM</option>
+                                            <option value="9:30 AM" label="9:30 AM">9:30 AM</option>
+                                            <option value="9:31 AM" label="9:31 AM">9:31 AM</option>
+                                            <option value="9:32 AM" label="9:32 AM">9:32 AM</option>
+                                            <option value="9:44 AM" label="9:44 AM">9:44 AM</option>
+                                            <option value="9:45 AM" label="9:45 AM">9:45 AM</option>
+                                            <option value="9:46 AM" label="9:46 AM">9:46 AM</option>
+                                            <option value="9:55 AM" label="9:55 AM">9:55 AM</option>
+                                            <option value="10:00 AM" label="10:00 AM">10:00 AM</option>
+                                            <option value="10:01 AM" label="10:01 AM">10:01 AM</option>
+                                            <option value="10:05 AM" label="10:05 AM">10:05 AM</option>
+                                            <option value="10:15 AM" label="10:15 AM">10:15 AM</option>
+                                            <option value="10:16 AM" label="10:16 AM">10:16 AM</option>
+                                            <option value="10:20 AM" label="10:20 AM">10:20 AM</option>
+                                            <option value="10:21 AM" label="10:21 AM">10:21 AM</option>
+                                            <option value="10:25 AM" label="10:25 AM">10:25 AM</option>
+                                            <option value="10:30 AM" label="10:30 AM">10:30 AM</option>
+                                            <option value="10:31 AM" label="10:31 AM">10:31 AM</option>
+                                            <option value="10:44 AM" label="10:44 AM">10:44 AM</option>
+                                            <option value="10:45 AM" label="10:45 AM">10:45 AM</option>
+                                            <option value="11:00 AM" label="11:00 AM">11:00 AM</option>
+                                            <option value="11:01 AM" label="11:01 AM">11:01 AM</option>
+                                            <option value="11:14 AM" label="11:14 AM">11:14 AM</option>
+                                            <option value="11:15 AM" label="11:15 AM">11:15 AM</option>
+                                            <option value="11:20 AM" label="11:20 AM">11:20 AM</option>
+                                            <option value="11:21 AM" label="11:21 AM">11:21 AM</option>
+                                            <option value="11:30 AM" label="11:30 AM">11:30 AM</option>
+                                            <option value="11:31 AM" label="11:31 AM">11:31 AM</option>
+                                            <option value="11:40 AM" label="11:40 AM">11:40 AM</option>
+                                            <option value="11:44 AM" label="11:44 AM">11:44 AM</option>
+                                            <option value="11:45 AM" label="11:45 AM">11:45 AM</option>
+                                            <option value="12:00 PM" label="12:00 PM">12:00 PM</option>
+                                            <option value="12:01 PM" label="12:01 PM">12:01 PM</option>
+                                            <option value="12:02 PM" label="12:02 PM">12:02 PM</option>
+                                            <option value="12:15 PM" label="12:15 PM">12:15 PM</option>
+                                            <option value="12:30 PM" label="12:30 PM">12:30 PM</option>
+                                            <option value="12:44 PM" label="12:44 PM">12:44 PM</option>
+                                            <option value="12:45 PM" label="12:45 PM">12:45 PM</option>
+                                            <option value="1:00 PM" label="1:00 PM">1:00 PM</option>
+                                            <option value="1:01 PM" label="1:01 PM">1:01 PM</option>
+                                            <option value="1:15 PM" label="1:15 PM">1:15 PM</option>
+                                            <option value="1:30 PM" label="1:30 PM">1:30 PM</option>
+                                            <option value="1:31 PM" label="1:31 PM">1:31 PM</option>
+                                            <option value="1:44 PM" label="1:44 PM">1:44 PM</option>
+                                            <option value="1:45 PM" label="1:45 PM">1:45 PM</option>
+                                            <option value="1:46 PM" label="1:46 PM">1:46 PM</option>
+                                            <option value="1:50 PM" label="1:50 PM">1:50 PM</option>
+                                            <option value="2:00 PM" label="2:00 PM">2:00 PM</option>
+                                            <option value="2:01 PM" label="2:01 PM">2:01 PM</option>
+                                            <option value="2:14 PM" label="2:14 PM">2:14 PM</option>
+                                            <option value="2:15 PM" label="2:15 PM">2:15 PM</option>
+                                            <option value="2:30 PM" label="2:30 PM">2:30 PM</option>
+                                            <option value="2:31 PM" label="2:31 PM">2:31 PM</option>
+                                            <option value="2:40 PM" label="2:40 PM">2:40 PM</option>
+                                            <option value="2:44 PM" label="2:44 PM">2:44 PM</option>
+                                            <option value="2:45 PM" label="2:45 PM">2:45 PM</option>
+                                            <option value="2:46 PM" label="2:46 PM">2:46 PM</option>
+                                            <option value="2:47 PM" label="2:47 PM">2:47 PM</option>
+                                            <option value="2:50 PM" label="2:50 PM">2:50 PM</option>
+                                            <option value="2:51 PM" label="2:51 PM">2:51 PM</option>
+                                            <option value="3:00 PM" label="3:00 PM">3:00 PM</option>
+                                            <option value="3:01 PM" label="3:01 PM">3:01 PM</option>
+                                            <option value="3:14 PM" label="3:14 PM">3:14 PM</option>
+                                            <option value="3:15 PM" label="3:15 PM">3:15 PM</option>
+                                            <option value="3:16 PM" label="3:16 PM">3:16 PM</option>
+                                            <option value="3:29 PM" label="3:29 PM">3:29 PM</option>
+                                            <option value="3:30 PM" label="3:30 PM">3:30 PM</option>
+                                            <option value="3:44 PM" label="3:44 PM">3:44 PM</option>
+                                            <option value="3:45 PM" label="3:45 PM">3:45 PM</option>
+                                            <option value="3:46 PM" label="3:46 PM">3:46 PM</option>
+                                            <option value="4:00 PM" label="4:00 PM">4:00 PM</option>
+                                            <option value="4:01 PM" label="4:01 PM">4:01 PM</option>
+                                            <option value="4:02 PM" label="4:02 PM">4:02 PM</option>
+                                            <option value="4:15 PM" label="4:15 PM">4:15 PM</option>
+                                            <option value="4:16 PM" label="4:16 PM">4:16 PM</option>
+                                            <option value="4:20 PM" label="4:20 PM">4:20 PM</option>
+                                            <option value="4:21 PM" label="4:21 PM">4:21 PM</option>
+                                            <option value="4:29 PM" label="4:29 PM">4:29 PM</option>
+                                            <option value="4:30 PM" label="4:30 PM">4:30 PM</option>
+                                            <option value="4:31 PM" label="4:31 PM">4:31 PM</option>
+                                            <option value="4:32 PM" label="4:32 PM">4:32 PM</option>
+                                            <option value="4:44 PM" label="4:44 PM">4:44 PM</option>
+                                            <option value="4:45 PM" label="4:45 PM">4:45 PM</option>
+                                            <option value="4:46 PM" label="4:46 PM">4:46 PM</option>
+                                            <option value="5:00 PM" label="5:00 PM">5:00 PM</option>
+                                            <option value="5:01 PM" label="5:01 PM">5:01 PM</option>
+                                            <option value="5:02 PM" label="5:02 PM">5:02 PM</option>
+                                            <option value="5:15 PM" label="5:15 PM">5:15 PM</option>
+                                            <option value="5:16 PM" label="5:16 PM">5:16 PM</option>
+                                            <option value="5:30 PM" label="5:30 PM">5:30 PM</option>
+                                            <option value="5:31 PM" label="5:31 PM">5:31 PM</option>
+                                            <option value="5:45 PM" label="5:45 PM">5:45 PM</option>
+                                            <option value="5:46 PM" label="5:46 PM">5:46 PM</option>
+                                            <option value="6:00 PM" label="6:00 PM">6:00 PM</option>
+                                            <option value="6:01 PM" label="6:01 PM">6:01 PM</option>
+                                            <option value="6:02 PM" label="6:02 PM">6:02 PM</option>
+                                            <option value="6:14 PM" label="6:14 PM">6:14 PM</option>
+                                            <option value="6:15 PM" label="6:15 PM">6:15 PM</option>
+                                            <option value="6:17 PM" label="6:17 PM">6:17 PM</option>
+                                            <option value="6:19 PM" label="6:19 PM">6:19 PM</option>
+                                            <option value="6:24 PM" label="6:24 PM">6:24 PM</option>
+                                            <option value="6:27 PM" label="6:27 PM">6:27 PM</option>
+                                            <option value="6:30 PM" label="6:30 PM">6:30 PM</option>
+                                            <option value="6:31 PM" label="6:31 PM">6:31 PM</option>
+                                            <option value="6:36 PM" label="6:36 PM">6:36 PM</option>
+                                            <option value="6:37 PM" label="6:37 PM">6:37 PM</option>
+                                            <option value="6:44 PM" label="6:44 PM">6:44 PM</option>
+                                            <option value="6:45 PM" label="6:45 PM">6:45 PM</option>
+                                            <option value="7:00 PM" label="7:00 PM">7:00 PM</option>
+                                            <option value="7:01 PM" label="7:01 PM">7:01 PM</option>
+                                            <option value="7:02 PM" label="7:02 PM">7:02 PM</option>
+                                            <option value="7:14 PM" label="7:14 PM">7:14 PM</option>
+                                            <option value="7:15 PM" label="7:15 PM">7:15 PM</option>
+                                            <option value="7:16 PM" label="7:16 PM">7:16 PM</option>
+                                            <option value="7:30 PM" label="7:30 PM">7:30 PM</option>
+                                            <option value="7:45 PM" label="7:45 PM">7:45 PM</option>
+                                            <option value="7:46 PM" label="7:46 PM">7:46 PM</option>
+                                            <option value="7:50 PM" label="7:50 PM">7:50 PM</option>
+                                            <option value="8:00 PM" label="8:00 PM">8:00 PM</option>
+                                            <option value="8:01 PM" label="8:01 PM">8:01 PM</option>
+                                            <option value="8:05 PM" label="8:05 PM">8:05 PM</option>
+                                            <option value="8:14 PM" label="8:14 PM">8:14 PM</option>
+                                            <option value="8:15 PM" label="8:15 PM">8:15 PM</option>
+                                            <option value="8:30 PM" label="8:30 PM">8:30 PM</option>
+                                            <option value="8:31 PM" label="8:31 PM">8:31 PM</option>
+                                            <option value="8:35 PM" label="8:35 PM">8:35 PM</option>
+                                            <option value="8:45 PM" label="8:45 PM">8:45 PM</option>
+                                            <option value="8:46 PM" label="8:46 PM">8:46 PM</option>
+                                            <option value="9:00 PM" label="9:00 PM">9:00 PM</option>
+                                            <option value="9:01 PM" label="9:01 PM">9:01 PM</option>
+                                            <option value="9:05 PM" label="9:05 PM">9:05 PM</option>
+                                            <option value="9:15 PM" label="9:15 PM">9:15 PM</option>
+                                            <option value="9:16 PM" label="9:16 PM">9:16 PM</option>
+                                            <option value="9:17 PM" label="9:17 PM">9:17 PM</option>
+                                            <option value="9:20 PM" label="9:20 PM">9:20 PM</option>
+                                            <option value="9:30 PM" label="9:30 PM">9:30 PM</option>
+                                            <option value="9:31 PM" label="9:31 PM">9:31 PM</option>
+                                            <option value="9:40 PM" label="9:40 PM">9:40 PM</option>
+                                            <option value="9:44 PM" label="9:44 PM">9:44 PM</option>
+                                            <option value="9:45 PM" label="9:45 PM">9:45 PM</option>
+                                            <option value="9:46 PM" label="9:46 PM">9:46 PM</option>
+                                            <option value="9:47 PM" label="9:47 PM">9:47 PM</option>
+                                            <option value="9:49 PM" label="9:49 PM">9:49 PM</option>
+                                            <option value="9:50 PM" label="9:50 PM">9:50 PM</option>
+                                            <option value="9:51 PM" label="9:51 PM">9:51 PM</option>
+                                            <option value="10:00 PM" label="10:00 PM">10:00 PM</option>
+                                            <option value="10:01 PM" label="10:01 PM">10:01 PM</option>
+                                            <option value="10:02 PM" label="10:02 PM">10:02 PM</option>
+                                            <option value="10:05 PM" label="10:05 PM">10:05 PM</option>
+                                            <option value="10:10 PM" label="10:10 PM">10:10 PM</option>
+                                            <option value="10:14 PM" label="10:14 PM">10:14 PM</option>
+                                            <option value="10:15 PM" label="10:15 PM">10:15 PM</option>
+                                            <option value="10:16 PM" label="10:16 PM">10:16 PM</option>
+                                            <option value="10:20 PM" label="10:20 PM">10:20 PM</option>
+                                            <option value="10:25 PM" label="10:25 PM">10:25 PM</option>
+                                            <option value="10:30 PM" label="10:30 PM">10:30 PM</option>
+                                            <option value="10:31 PM" label="10:31 PM">10:31 PM</option>
+                                            <option value="10:32 PM" label="10:32 PM">10:32 PM</option>
+                                            <option value="10:40 PM" label="10:40 PM">10:40 PM</option>
+                                            <option value="10:44 PM" label="10:44 PM">10:44 PM</option>
+                                            <option value="10:45 PM" label="10:45 PM">10:45 PM</option>
+                                            <option value="10:46 PM" label="10:46 PM">10:46 PM</option>
+                                            <option value="10:50 PM" label="10:50 PM">10:50 PM</option>
+                                            <option value="10:51 PM" label="10:51 PM">10:51 PM</option>
+                                            <option value="11:00 PM" label="11:00 PM">11:00 PM</option>
+                                            <option value="11:01 PM" label="11:01 PM">11:01 PM</option>
+                                            <option value="11:05 PM" label="11:05 PM">11:05 PM</option>
+                                            <option value="11:06 PM" label="11:06 PM">11:06 PM</option>
+                                            <option value="11:10 PM" label="11:10 PM">11:10 PM</option>
+                                            <option value="11:14 PM" label="11:14 PM">11:14 PM</option>
+                                            <option value="11:15 PM" label="11:15 PM">11:15 PM</option>
+                                            <option value="11:16 PM" label="11:16 PM">11:16 PM</option>
+                                            <option value="11:20 PM" label="11:20 PM">11:20 PM</option>
+                                            <option value="11:25 PM" label="11:25 PM">11:25 PM</option>
+                                            <option value="11:28 PM" label="11:28 PM">11:28 PM</option>
+                                            <option value="11:29 PM" label="11:29 PM">11:29 PM</option>
+                                            <option value="11:30 PM" label="11:30 PM">11:30 PM</option>
+                                            <option value="11:31 PM" label="11:31 PM">11:31 PM</option>
+                                            <option value="11:35 PM" label="11:35 PM">11:35 PM</option>
+                                            <option value="11:40 PM" label="11:40 PM">11:40 PM</option>
+                                            <option value="11:44 PM" label="11:44 PM">11:44 PM</option>
+                                            <option value="11:45 PM" label="11:45 PM">11:45 PM</option>
+                                            <option value="11:46 PM" label="11:46 PM">11:46 PM</option>
+                                            <option value="11:50 PM" label="11:50 PM">11:50 PM</option>
+                                            <option value="11:55 PM" label="11:55 PM">11:55 PM</option>
+                                            <option value="11:58 PM" label="11:58 PM">11:58 PM</option>
+                                            <option value="11:59 PM" label="11:59 PM">11:59 PM</option>
+                                        </select>                                    </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    -->
+                                    <!--</ul>
+                                    <div style="clear: both;padding-left: 5px;">
+                                        <div class="buttons">
+                                            <button type="submit" id='searchmenu_submitbutton' name='searchmenu_submitbutton' class="positive">Search</button>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="leavingFormTitle" id="leavingFormTitle">
+                                    <input type="hidden" name="goingToTitle" id="goingToTitle">
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="homepageslider detailsbox right whitesmoke_brown col1">
+                            <div class="slider">
+                                <ul class="bxslider">
+                                    <li><a target="_blank" href=""><img src="https://s3.amazonaws.com/busbdmedia/rsz_17310956_1111499345835.1499835853" width="510px;" height="205px;" /></a></li>
+                                    <li><a target="_blank" href=""><img src="https://s3.amazonaws.com/busbdmedia/10101.1499864806" width="510px;" height="205px;" /></a></li>
+                                    <li><a target="_blank" href=""><img src="https://s3.amazonaws.com/busbdmedia/WhatsApp Image 2020-07-14 at 9.47.08 PM(1).1594742702" width="510px;" height="205px;" /></a></li>
+                                </ul>
+                            </div>
+                        </div>-->
+
+
+
+                        <div class="homepage-content detailsbox right whitesmoke_brown">
+                            <div class="homepage">
+                                <table style="width: 100%; margin-top: 0px;" border="0" cellspacing="5" cellpadding="5">
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: center;" align="left" valign="top"><span style="font-size: large;"><strong>বিশেষ বিজ্ঞপ্তি:<br /><br />দেশ ট্রাভেলস এর গাড়ী এখন থেকে ঢাকা-খুলনা-ঢাকা (এসি/ননএসি) নিয়মিত চলাচল করছে।<br /><br />ধন্যবাদ ।</strong></span><br /><br /><br style="font-size: medium; background-color: #00ffff;" /><span style="font-size: medium;"><span style="font-size: medium;"><span style="font-size: medium;">Desh travels is a partnership business that is also a sister concern of Jamuna Industrial Agro Group. The company was formed on 18th November 2012. Desh travels started their journey with twenty three buses of Hino 1J Plus and three Air Condition (Hyundai universe nobles).Now thier fleet consists of Hino 1J plus of 45 non a/c buses and 32 (Hyundai univese nobles)A/C buses.Desh travels are serving customers from the capital city of Bangladesh to far end Rajshahi, Chittagong, cox'sbazzar, Jessor and benapole <br />(with international destination to <strong>KolKata</strong>).<br /><br />অনলাইনে টিকেট ক্রয়কৃত যাত্রীদের বাস ছাড়ার ১৫ মিনিট পূর্বে টিকেট এর প্রিন্ট কপি প্রদান করা হবে ।<br /></span></span></span><span style="font-size: medium; color: #ffffff;"><br /><br /><br /></span></td>
+                                            <td align="center" valign="top">&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <script type="text/javascript">
+    var data1 = $('input#jsonval').val();
+    if(data1.length > 0 ){
+            data1 = JSON.parse(data1);
+            var activefrom = new Array();
+            activefrom.push('');
+            $.each(data1, function(i,v) {
+                activefrom.push(i);
+            });
+            $('#searchmenu_leavingform option').each(function() {
+                if($.inArray($(this).attr('value'),activefrom)===-1){
+                    $("#searchmenu_leavingform option[value='"+$(this).attr('value')+"']").remove();
+                }
+            });
+     }
+
+    $('#searchmenu_goingto').attr('disabled', 'disabled');
+    var select = $('#searchmenu_goingto');
+    var options = select.attr('options');
+    $('option', select).remove();
+    $('select#searchmenu_leavingform').change(function(){
+        $('#searchmenu_goingto').removeAttr('disabled');
+        var selectedVal  = $(this).find('option:selected').val();
+        var data = $('input#jsonval').val();
+        var select = $('#searchmenu_goingto');
+        var options = select.attr('options');
+        $('option', select).remove();
+        if(data.length > 0 ){
+            data = JSON.parse(data);
+            $.each(data, function(i,v) {
+                if(i == selectedVal){
+                    $.each(v, function(u,val){
+                        $('select#searchmenu_goingto').append('<option value="' + u + '">' + val.district_id + '</option>');
+                    })
+                }
+            });
+            if($(this).find('option:selected').val() == ''){
+                $('select#searchmenu_goingto').attr('disabled', 'disabled');
+                $('select#searchmenu_departingtime').attr('disabled', 'disabled');
+            }
+        }
+        $('#goingToTitle').val($('select#searchmenu_goingto').find('option:selected').text());
+        $('#leavingFormTitle').val($('select#searchmenu_leavingform option:selected').text());
+        dropDownDepartingTime();
+    });
+
+    /* Front Page AJAX Departing Time select option change Code start author: Razib */
+    $('select#searchmenu_goingto').change(function(){
+        dropDownDepartingTime();
+        $('#goingToTitle').val($('select#searchmenu_goingto option:selected').text());
+    });
+
+    $('input#searchmenu_departingon').change(function(){
+        dropDownDepartingTime();
+    });
+
+    if($('select#searchmenu_goingto').attr('disabled') == 'disabled'){
+        $('select#searchmenu_departingtime').attr('disabled', 'disabled');
+    }else{
+        dropDownDepartingTime();
+    }
+
+    /* Front Page AJAX Departing Time select option change function start author: Razib */
+    function dropDownDepartingTime() {
+        $.ajax({
+            url: '/en_US/ajax/onlineseatbooking/departingtime',
+            data: {
+                searchmenu_leavingform: $.trim($('select#searchmenu_leavingform option:selected').val()),
+                searchmenu_goingto: $.trim($('select#searchmenu_goingto option:selected').val()),
+                searchmenu_departingon: $.trim($('input#searchmenu_departingon').val())
+            },
+            type: "POST",
+            success: function (data) {
+                if (data) {
+                    data = JSON.parse(data);
+                    var counrData = $.map(data,function (i, v) {
+                        return i
+                    }).length;
+                    if (counrData) {
+                        var select = $('#searchmenu_departingtime');
+                        var options = select.attr('options');
+                        $('option', select).remove();
+                        $('select#searchmenu_departingtime').append('<option value=" ">---</option>');
+                        $.each(data, function (i, v) {
+                            $('select#searchmenu_departingtime').append('<option value="' + v.schedule + '">' + v.schedule + '</option>');
+                        })
+                        select.removeAttr('disabled');
+                    }
+                }else{
+                    $('select#searchmenu_departingtime').attr('disabled', 'disabled');
+                }
+            }
+        });
+        return false;
+    }
+
+            </script>
+        </div>
+    </div>
+    <script type="text/javascript"></script><div class="clearfix"></div>
+</div>
+
+
+<div style="text-align: center; vertical-align: middle;">
+    WE ACCEPT: <br /><img src="https://s3.amazonaws.com/busbdimages/bank_logo.png" alt="" />
+
+</div>

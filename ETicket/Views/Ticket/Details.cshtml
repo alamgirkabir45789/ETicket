@@ -1,0 +1,177 @@
+﻿@model ETicket.Models.Passenger
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<div class="col-11 mx-auto pt-0 p-0">
+    <div class="card">
+        <div class="card-header bg-success text-uppercase text-white" style="height:45px;">
+            <h4>View Ticket</h4>
+        </div>
+        <form  asp-action="Details">
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control-plaintext" readonly />
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control-plaintext" readonly />
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Gender" class="control-label"></label>
+                        <input asp-for="Gender" class="form-control-plaintext" readonly />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ContactNo" class="control-label"></label>
+                        <input asp-for="ContactNo" class="form-control-plaintext" readonly />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="PassengerNo" class="control-label"></label>
+                        <input asp-for="PassengerNo" class="form-control-plaintext" readonly />
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control-plaintext" readonly />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="JournyDate" class="control-label"></label>
+                        <input asp-for="JournyDate" class="form-control-plaintext" readonly />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control-plaintext" readonly />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Route" class="control-label"></label>
+                        <input asp-for="Route.Name" class="form-control-plaintext" readonly />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="RouteTo" class="control-label"></label>
+                        <input asp-for="RouteTo.Name" class="form-control-plaintext" readonly />
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-12 ">
+                    <div class="col-6 form-group text-right p-2">
+                        <a asp-action="List" class="btn btn-secondary">&nbsp;Back&nbsp;</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+
+
+    </div>
+
+</div>
+
+@*<div>
+        <h4>Passenger</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ContactNo)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.PassengerNo)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.PassengerNo)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.JournyDate)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.JournyDate)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Route)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Route.Code)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.RouteTo)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.RouteTo.Code)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.PassengerId">Edit</a> |
+        <a asp-action="List">Back to List</a>
+    </div>*@
